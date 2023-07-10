@@ -18,7 +18,6 @@ export let req={
         let d={
             date:date
         }
-        console.log(d)
         return axios.post('https://api.broadway.kg/api/v1/getMovies',d, config).then(res=>res.data.response)
 
     },
