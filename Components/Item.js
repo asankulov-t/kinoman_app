@@ -1,5 +1,4 @@
-import React, {useEffect, useRef} from 'react';
-import {StyleSheet, Image, Text, View, Dimensions, Animated} from "react-native";
+import {StyleSheet, Image, Text, View, Dimensions, } from "react-native";
 import Animation from "./Animation";
 
 const WIDTH = Dimensions.get('window').width
@@ -16,16 +15,27 @@ const Item = (item) => {
                     style={styles.img}/>
             </View>
             <View style={styles.info}>
-                <View style={styles.nameAge}><
-                    Text style={styles.title}>{item.item.filmName}</Text>
+                <View style={styles.nameAge}>
+                    <Text style={styles.title}>{item.item.filmName}</Text>
                     <Text style={item.item.age==18?styles.red:styles.green}>{item.item.age}+</Text>
                 </View>
-                <Text style={styles.title}>{item.item.duration.text}</Text>
                 <View style={styles.sessions}>
                     {item.item.times.map((t) => <View style={styles.textWrapper} key={t.time}>
                         <Text style={styles.session}>{t.time}</Text>
-                        <Text style={styles.format}>{t.formatContent}</Text>
+                        <View style={styles.priceBlock}>
+                            <Text style={styles.format}>{t.formatContent}   </Text>
+                            <Text style={styles.price}>{t.getSessionPricesResponse.data.placesTypes.placeType.sum.text.replace('руб','сом').replace('00коп','')}</Text>
+                        </View>
                     </View>)}
+                </View>
+                <View style={styles.description}>
+                    <View style={styles.remarkBlock}>
+                        <Text style={styles.remarkText}>Описание: {item.item.remark}</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.duration}>Старана: {item.item.country}</Text>
+                        <Text style={styles.duration}>Продолжительность: {item.item.duration.text}</Text>
+                    </View>
                 </View>
             </View>
         </View>
@@ -35,14 +45,14 @@ const styles = StyleSheet.create({
     wrapper: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: 25
+        marginTop: 5
     },
     img: {
-        width: 50,
-        height: 90,
+        width: 80,
+        height: 130,
     },
     info: {
-        marginLeft: 25
+        marginLeft: 18
     },
     nameAge:{
         display: 'flex',
@@ -51,19 +61,37 @@ const styles = StyleSheet.create({
         textAlign:'center'
     },
     title:{
-        fontSize: 15,
+        fontSize: 20,
         color: '#ffffff',
         fontWeight: 'bold',
-        marginTop: 8,
+        marginTop: 1,
+        marginRight:7,
+    },
+
+    duration:{
+        fontSize: 10,
+        color: '#ffffff',
+        fontWeight: 'bold',
+        marginTop: 2,
         marginRight:10,
     },
+    remarkBlock:{
+        marginTop:2,
+        marginBottom:2,
+        width:700,
+    },
+    remarkText:{
+
+        color:'#fff',
+        fontSize:7,
+        fontWeight:'bold'
+    },
     red: {
-        fontSize: 15,
+        fontSize: 20,
         backgroundColor:'#c40000',
-        padding:4,
+        padding:1,
         color: '#ffffff',
         fontWeight: 'bold',
-        marginTop: 8,
         marginRight:10,
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
@@ -71,12 +99,11 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 4,
     },
     green: {
-        fontSize: 15,
+        fontSize: 20,
         backgroundColor:'#15bb2a',
-        padding:4,
+        padding:1,
         color: '#ffffff',
         fontWeight: 'bold',
-        marginTop: 8,
         marginRight:10,
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
@@ -88,35 +115,53 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
-        width: WIDTH - 120
+        textAlign:'center',
+        width: 680
     },
     textWrapper: {
-        marginTop: 7,
+
+        marginTop: 6,
         display: "flex",
         flexDirection: 'column',
+        justifyContent:'center',
         alignItems: 'center',
-        backgroundColor: '#fcc537',
-        borderWidth: 3,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-        marginRight: 20,
-        paddingRight: 15,
-        paddingLeft: 15,
+        textAlign:'center',
+        backgroundColor: '#000000',
+        borderWidth: 1,
+        borderTopLeftRadius: 6,
+        borderTopRightRadius: 6,
+        borderBottomLeftRadius: 6,
+        borderBottomRightRadius: 6,
+        marginRight: 9,
+        paddingRight: 8,
+        paddingLeft: 8,
+        paddingTop:0,
         borderColor: '#f1f0f0'
     },
-    format: {
-
-        color: '#f6f6f6',
+    priceBlock:{
+       display:'flex',
+       flexDirection:'row',
+       alignItems:'center',
+       margin:0
+    },
+    price:{
+        fontSize:8,
+        color: '#ffffff',
         fontWeight: 'bold',
+        paddingBottom:3
+    },
+    format: {
+        fontSize:8,
+        color: '#fdfdfd',
+        fontWeight: 'bold',
+        paddingBottom:3
     },
     session: {
-        marginTop: 3,
+        marginTop: 2,
         textAlign: 'center',
-        color: '#000000',
+        color: '#ffffff',
         fontWeight: 'bold',
-        fontSize: 15,
+        fontSize: 10,
     },
 })
 export default Item;

@@ -18,16 +18,17 @@ const RenderItem = React.memo((props) => {
                     index: current++
                 })
             }
-        }, 5500)
+        }, 10000)
         return () => clearInterval(startAutoPlay)
     }, [movies])
 
-    return movies && <FlatList
-        data={movies}
-        ref={ref}
-        renderItem={({item}) => <Item item={item}/>}
-        keyExtractor={(item) => item.filmId}
-    />
+    return (movies&&<FlatList
+            data={movies}
+            ref={ref}
+            renderItem={({item}) => <Item item={item}/>}
+            keyExtractor={(item) => item.filmId}
+        />
+    )
 }, [])
 
 

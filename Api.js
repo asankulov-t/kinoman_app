@@ -18,7 +18,7 @@ export let req={
         let d={
             date:date
         }
-        return axios.post('https://api.broadway.kg/api/v1/getMovies',d, config).then(res=>res.data.response)
+        return axios.post('https://api.broadway.kg/api/v1/getMovies',d, config).then(res=>res.data.response).catch(e=>console.log(e))
 
     },
     getToken(date){
