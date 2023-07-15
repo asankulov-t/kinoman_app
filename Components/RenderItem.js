@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, StyleSheet, Image, Text, View, Dimensions} from "react-native";
+import {FlatList} from "react-native";
 import Item from "./Item";
 
 
@@ -32,11 +32,5 @@ const RenderItem = React.memo((props) => {
 }, [])
 
 
-const styles = StyleSheet.create({
-    wrapper: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 25
-    },
-})
+
 export default RenderItem;

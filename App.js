@@ -1,7 +1,8 @@
-import {Animated, Button, Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {req} from "./Api";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import RenderItem from "./Components/RenderItem";
+import {HEIGHT} from "./Components/Item";
 
 
 export default function App() {
@@ -10,17 +11,16 @@ export default function App() {
 
     useEffect(() => {
             req.getToken(today).then(r => setData(r))
-
     }, [])
-
     return (<View style={styles.container}>
-        {data?<RenderItem data={data}/>:<Text style={{color:'#fff' }}>some Error</Text>}
+        {data?<RenderItem setData={setData} data={data}/>:<Text style={{color:'#fff' }}>some Error</Text>}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        height:HEIGHT,
         flex: 1,
         backgroundColor: '#000000',
         paddingRight: 20,

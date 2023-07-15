@@ -1,10 +1,12 @@
 import {StyleSheet, Image, Text, View, Dimensions, } from "react-native";
 import Animation from "./Animation";
 
+
 const WIDTH = Dimensions.get('window').width
-const HEIGHT = Dimensions.get('window').height
+export const HEIGHT = Dimensions.get('window').height
 
 const Item = (item) => {
+
     return <Animation style={{
         width: WIDTH
     }}>
@@ -29,9 +31,9 @@ const Item = (item) => {
                     </View>)}
                 </View>
                 <View style={styles.description}>
-                    <View style={styles.remarkBlock}>
-                        <Text style={styles.remarkText}>Описание: {item.item.remark}</Text>
-                    </View>
+                    {/*<View style={styles.remarkBlock}>*/}
+                    {/*    <Text style={styles.remarkText}>Описание: {item.item.remark.slice(0,260)+'...'}</Text>*/}
+                    {/*</View>*/}
                     <View>
                         <Text style={styles.duration}>Старана: {item.item.country}</Text>
                         <Text style={styles.duration}>Продолжительность: {item.item.duration.text}</Text>
@@ -45,11 +47,14 @@ const styles = StyleSheet.create({
     wrapper: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: 5
+        justifyContent: 'flex-start',
+        marginTop: 5,
+        height: HEIGHT/3
     },
     img: {
-        width: 80,
-        height: 130,
+        width:110,
+        height: HEIGHT/3,
+        objectFit: 'cover'
     },
     info: {
         marginLeft: 18
@@ -61,7 +66,7 @@ const styles = StyleSheet.create({
         textAlign:'center'
     },
     title:{
-        fontSize: 20,
+        fontSize: 24,
         color: '#ffffff',
         fontWeight: 'bold',
         marginTop: 1,
@@ -69,25 +74,14 @@ const styles = StyleSheet.create({
     },
 
     duration:{
-        fontSize: 10,
+        fontSize: 13,
         color: '#ffffff',
         fontWeight: 'bold',
-        marginTop: 2,
         marginRight:10,
     },
-    remarkBlock:{
-        marginTop:2,
-        marginBottom:2,
-        width:700,
-    },
-    remarkText:{
 
-        color:'#fff',
-        fontSize:7,
-        fontWeight:'bold'
-    },
     red: {
-        fontSize: 20,
+        fontSize: 24,
         backgroundColor:'#c40000',
         padding:1,
         color: '#ffffff',
@@ -99,7 +93,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 4,
     },
     green: {
-        fontSize: 20,
+        fontSize: 24,
         backgroundColor:'#15bb2a',
         padding:1,
         color: '#ffffff',
@@ -119,7 +113,6 @@ const styles = StyleSheet.create({
         width: 680
     },
     textWrapper: {
-
         marginTop: 6,
         display: "flex",
         flexDirection: 'column',
@@ -127,16 +120,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign:'center',
         backgroundColor: '#000000',
-        borderWidth: 1,
+        borderWidth: 2,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
         borderBottomLeftRadius: 6,
         borderBottomRightRadius: 6,
-        marginRight: 9,
-        paddingRight: 8,
-        paddingLeft: 8,
+        marginRight: 8,
+        paddingRight: 7,
+        paddingLeft: 7,
         paddingTop:0,
         borderColor: '#f1f0f0'
+    },
+    remarkBlock:{
+        width:550
+    },
+    remarkText:{
+      color:'#fff',
+        fontWeight:'bold',
+        fontSize:10
     },
     priceBlock:{
        display:'flex',
@@ -145,23 +146,22 @@ const styles = StyleSheet.create({
        margin:0
     },
     price:{
-        fontSize:8,
+        fontSize:10,
         color: '#ffffff',
         fontWeight: 'bold',
-        paddingBottom:3
+        paddingBottom:2
     },
     format: {
-        fontSize:8,
+        fontSize:10,
         color: '#fdfdfd',
         fontWeight: 'bold',
-        paddingBottom:3
+        paddingBottom:2
     },
     session: {
-        marginTop: 2,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        fontSize: 10,
+        fontSize: 14,
     },
 })
 export default Item;

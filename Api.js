@@ -38,5 +38,5 @@ export let req={
         let res=axios.post('https://api.broadway.kg/api/authenticate',postData, config).then(res=>res.data.token)
             .then(r=>this.getMovies(r, date))
         return res
-    }
+    },
 }
