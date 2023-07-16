@@ -3,7 +3,7 @@
     "name": "kinoman_app",
     "slug": "kinoman_app",
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "vertical",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

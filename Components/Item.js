@@ -49,24 +49,27 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         marginTop: 5,
-        height: HEIGHT/3
+        height: HEIGHT/6
     },
     img: {
-        width:110,
-        height: HEIGHT/3,
+        width:95,
+        height: HEIGHT/6,
         objectFit: 'cover'
     },
     info: {
-        marginLeft: 18
+        marginLeft: 10
     },
     nameAge:{
         display: 'flex',
         flexDirection: 'row',
         alignItems:'center',
-        textAlign:'center'
+        textAlign:'center',
+        flexWrap: 'wrap',
+        flexShrink: 1,
+        width:WIDTH
     },
     title:{
-        fontSize: 24,
+        fontSize: 13,
         color: '#ffffff',
         fontWeight: 'bold',
         marginTop: 1,
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     },
 
     red: {
-        fontSize: 24,
+        fontSize: 13,
         backgroundColor:'#c40000',
         padding:1,
         color: '#ffffff',
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 4,
     },
     green: {
-        fontSize: 24,
+        fontSize: 13,
         backgroundColor:'#15bb2a',
         padding:1,
         color: '#ffffff',
@@ -110,26 +113,26 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'center',
         textAlign:'center',
-        width: 680
     },
     textWrapper: {
-        marginTop: 6,
+        marginTop: 5,
         display: "flex",
         flexDirection: 'column',
+        flexWrap:'wrap',
         justifyContent:'center',
         alignItems: 'center',
         textAlign:'center',
-        backgroundColor: '#000000',
-        borderWidth: 2,
+        backgroundColor: '#343434',
+        borderWidth: 1,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
         borderBottomLeftRadius: 6,
         borderBottomRightRadius: 6,
-        marginRight: 8,
-        paddingRight: 7,
-        paddingLeft: 7,
+        marginRight: 5,
+        paddingRight: 5,
+        paddingLeft: 5,
         paddingTop:0,
-        borderColor: '#f1f0f0'
+        borderColor: '#404040'
     },
     remarkBlock:{
         width:550
@@ -146,22 +149,22 @@ const styles = StyleSheet.create({
        margin:0
     },
     price:{
-        fontSize:10,
-        color: '#ffffff',
+        fontSize:8,
+        color: '#ffdc7d',
         fontWeight: 'bold',
         paddingBottom:2
     },
     format: {
-        fontSize:10,
-        color: '#fdfdfd',
+        fontSize:8,
+        color: '#ffdc7d',
         fontWeight: 'bold',
         paddingBottom:2
     },
     session: {
         textAlign: 'center',
-        color: '#ffffff',
+        color: '#ffdc7d',
         fontWeight: 'bold',
-        fontSize: 14,
+        fontSize: 10,
     },
 })
 export default Item;
