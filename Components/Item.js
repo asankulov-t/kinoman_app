@@ -11,6 +11,7 @@ const Item = (item) => {
         width: WIDTH
     }}>
         <View key={item.filmName} style={styles.wrapper}>
+
             <View>
                 <Image
                     source={{uri: 'https://api.broadway.kg/files/' + item.item.picture.fileName + item.item.picture.fileExt}}
@@ -35,7 +36,7 @@ const Item = (item) => {
                     {/*    <Text style={styles.remarkText}>Описание: {item.item.remark.slice(0,260)+'...'}</Text>*/}
                     {/*</View>*/}
                     <View>
-                        <Text style={styles.duration}>Старана: {item.item.country}</Text>
+                        <Text style={styles.duration}>Страна: {item.item.country}</Text>
                         <Text style={styles.duration}>Продолжительность: {item.item.duration.text}</Text>
                     </View>
                 </View>
@@ -43,21 +44,22 @@ const Item = (item) => {
         </View>
     </Animation>
 }
+
 const styles = StyleSheet.create({
     wrapper: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         marginTop: 5,
-        height: HEIGHT/6
+        height: HEIGHT/5
     },
     img: {
-        width:95,
-        height: HEIGHT/6,
-        objectFit: 'cover'
+        width:110,
+        height: HEIGHT/5,
+        objectFit:'cover'
     },
     info: {
-        marginLeft: 10
+        marginLeft: 8
     },
     nameAge:{
         display: 'flex',
@@ -66,24 +68,17 @@ const styles = StyleSheet.create({
         textAlign:'center',
         flexWrap: 'wrap',
         flexShrink: 1,
-        width:WIDTH
+        width:WIDTH-116
     },
     title:{
-        fontSize: 13,
-        color: '#ffffff',
+        fontSize: 14,
+        color: '#ffdc7d',
         fontWeight: 'bold',
         marginTop: 1,
         marginRight:7,
-    },
 
-    duration:{
-        fontSize: 13,
-        color: '#ffffff',
-        fontWeight: 'bold',
-        marginRight:10,
     },
-
-    red: {
+    red:{
         fontSize: 13,
         backgroundColor:'#c40000',
         padding:1,
@@ -95,7 +90,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
     },
-    green: {
+    green:{
         fontSize: 13,
         backgroundColor:'#15bb2a',
         padding:1,
@@ -107,12 +102,21 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
     },
+    duration:{
+        fontSize: 12,
+        color: '#ffffff',
+        fontWeight: 'bold',
+        marginRight:10,
+    },
+
+
     sessions: {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
         textAlign:'center',
+        width:WIDTH-142
     },
     textWrapper: {
         marginTop: 5,
@@ -132,7 +136,8 @@ const styles = StyleSheet.create({
         paddingRight: 5,
         paddingLeft: 5,
         paddingTop:0,
-        borderColor: '#404040'
+        borderColor: '#404040',
+
     },
     remarkBlock:{
         width:550
@@ -149,13 +154,13 @@ const styles = StyleSheet.create({
        margin:0
     },
     price:{
-        fontSize:8,
+        fontSize:7,
         color: '#ffdc7d',
         fontWeight: 'bold',
         paddingBottom:2
     },
     format: {
-        fontSize:8,
+        fontSize:7,
         color: '#ffdc7d',
         fontWeight: 'bold',
         paddingBottom:2
@@ -164,7 +169,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffdc7d',
         fontWeight: 'bold',
-        fontSize: 10,
+        fontSize: 9,
     },
 })
 export default Item;

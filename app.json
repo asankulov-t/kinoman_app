@@ -3,7 +3,7 @@
     "name": "kinoman_app",
     "slug": "kinoman_app",
     "version": "1.0.0",
-    "orientation": "vertical",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -22,6 +22,12 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "intentFilters": [
+        {
+          "action": "android.intent.action.MAIN",
+          "category": "android.intent.category.LEANBACK_LAUNCHER"
+        }
+      ],
       "package": "com.asankulovt.kinoman_app"
     },
     "web": {

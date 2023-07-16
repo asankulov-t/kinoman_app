@@ -10,7 +10,7 @@ export default function App() {
     let [data, setData] = useState('');
 
     useEffect(() => {
-            req.getToken(today).then(r => setData(r))
+            req.getToken('17.07.2023').then(r => setData(r))
     }, [])
     return (<View style={styles.container}>
         {data?<RenderItem setData={setData} data={data}/>:<Text style={{color:'#fff' }}>some Error</Text>}
