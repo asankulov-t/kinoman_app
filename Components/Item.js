@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         flexWrap: 'wrap',
         flexShrink: 1,
-        width:WIDTH-116
+        width:WIDTH-138
     },
     title:{
         fontSize: 14,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'center',
         textAlign:'center',
-        width:WIDTH-142
+        width:WIDTH-110
     },
     textWrapper: {
         marginTop: 5,

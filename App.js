@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         height:HEIGHT,
         flex: 1,
         backgroundColor: '#000000',
-        paddingRight: 20,
-        paddingLeft:25 ,
+        paddingRight: 13,
+        paddingLeft:7 ,
     },
 });
